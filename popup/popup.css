@@ -1,0 +1,38 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f1f1f;
+  --muted: #666666;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #2b2a33;
+    --fg: #fbfbfe;
+    --muted: #b0b0b8;
+  }
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px system-ui, sans-serif;
+  width: 240px;
+  margin: 12px;
+}
+h1 {
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.row input[type="checkbox"] {
+  order: 2;
+}
+.hint {
+  color: var(--muted);
+  font-size: 11px;
+  margin: 8px 0 0;
+}
