@@ -1,34 +1,34 @@
 # YT Full Captions
 
-Firefox-utvidelse som viser YouTubes **autogenererte undertekster linje for linje**, slik vanlige undertekster vises, i stedet for ett og ett ord.
+A Firefox extension that shows YouTube's **auto-generated captions line by line**, the way regular subtitles appear, instead of one word at a time.
 
-## Hvordan det virker
+## How it works
 
-YouTube henter autogenererte undertekster fra `/api/timedtext?kind=asr&fmt=json3`. I det formatet har hvert ord sin egen tidsstempel (`tOffsetMs`), og teksten ligger i et «roll-up»-vindu. Det er derfor spilleren viser ordene ett etter ett.
+YouTube loads auto-generated captions from `/api/timedtext?kind=asr&fmt=json3`. In that format every word has its own timestamp (`tOffsetMs`) and the text sits in a "roll-up" window, which is why the player reveals the words one by one.
 
-Utvidelsen bruker `webRequest.filterResponseData` til å skrive om svaret før spilleren får det:
+The extension uses `webRequest.filterResponseData` to rewrite the response before the player gets it:
 
-- alle ordene i en linje slås sammen til ett segment uten tidsforskyvning
-- roll-up-vinduet fjernes, så teksten vises som vanlige «pop-on»-undertekster
-- hver linje vises fra den starter til neste linje begynner
-- du kan velge 1, 2 eller 3 linjer per tekst i popup-menyen
+- all the words in a line are merged into a single segment with no per-word offsets
+- the roll-up window is removed, so the text is shown as regular "pop-on" captions
+- each line stays on screen from when it starts until the next line begins
+- you can choose 1, 2 or 3 lines per caption in the popup
 
-Manuelle undertekster blir ikke endret.
+Manually created captions are left unchanged.
 
-## Installasjon
+## Installation
 
-### Midlertidig (for testing)
+### Temporary (for testing)
 
-1. Åpne `about:debugging#/runtime/this-firefox` i Firefox
-2. Klikk **Last inn midlertidig tillegg…**
-3. Velg `manifest.json` i denne mappen
+1. Open `about:debugging#/runtime/this-firefox` in Firefox
+2. Click **Load Temporary Add-on…**
+3. Select `manifest.json` in this folder
 
-Tillegget blir borte når Firefox lukkes.
+The add-on is removed when Firefox closes.
 
 ### Permanent
 
-Pakk mappen som zip og signer den gjennom [addons.mozilla.org](https://addons.mozilla.org/developers/) (kan velges som «unlisted»), eller bruk Firefox Developer Edition / Nightly med `xpinstall.signatures.required` satt til `false`.
+Zip the folder and sign it through [addons.mozilla.org](https://addons.mozilla.org/developers/) (you can choose "unlisted"), or use Firefox Developer Edition / Nightly with `xpinstall.signatures.required` set to `false`.
 
-## Bruk
+## Usage
 
-Slå på tekstingen på en video med autogenererte undertekster. Klikk på ikonet i verktøylinjen for å slå utvidelsen av/på eller endre antall linjer. Endringer gjelder neste gang tekstingen lastes: slå tekstingen av og på med `C`, eller last siden på nytt.
+Turn on captions on a video with auto-generated captions. Click the toolbar icon to turn the extension on or off or change the number of lines. Changes apply the next time captions load: toggle captions off and on with `C`, or reload the page.
