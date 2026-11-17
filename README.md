@@ -1,4 +1,4 @@
-# YT Full Captions
+# YouTube Full Captions
 
 A Firefox extension that shows YouTube's **auto-generated captions line by line**, the way regular subtitles appear, instead of one word at a time.
 

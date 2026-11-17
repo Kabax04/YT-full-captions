@@ -49,7 +49,7 @@ function onTimedText(details) {
       const result = ytfcTransform(data, settings.linesPerCaption);
       if (result) output = new TextEncoder().encode(JSON.stringify(result));
     } catch (e) {
-      console.warn("[YT Full Captions] could not transform captions:", e);
+      console.warn("[YouTube Full Captions] could not transform captions:", e);
     }
 
     filter.write(output);
@@ -57,7 +57,7 @@ function onTimedText(details) {
   };
 
   filter.onerror = () => {
-    console.warn("[YT Full Captions] filter error:", filter.error);
+    console.warn("[YouTube Full Captions] filter error:", filter.error);
   };
 
   return {};
