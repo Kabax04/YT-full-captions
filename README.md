@@ -17,17 +17,26 @@ Manually created captions are left unchanged.
 
 ## Installation
 
-### Temporary (for testing)
+### Install the signed release (recommended)
 
-1. Open `about:debugging#/runtime/this-firefox` in Firefox
-2. Click **Load Temporary Add-on…**
-3. Select `manifest.json` in this folder
+1. Go to the [latest release](https://github.com/Kabax04/YT-full-captions/releases/latest)
+2. Download the `.xpi` file (signed by Mozilla)
+3. Open it in Firefox, or drag it into a Firefox window, and click **Add**
+
+The add-on stays installed across restarts.
+
+### Load from source (for development)
+
+1. Clone or download this repository
+2. Open `about:debugging#/runtime/this-firefox` in Firefox
+3. Click **Load Temporary Add-on…**
+4. Select `manifest.json` in this folder
 
 The add-on is removed when Firefox closes.
 
-### Permanent
+### Releasing a new version
 
-Zip the folder and sign it through [addons.mozilla.org](https://addons.mozilla.org/developers/) (you can choose "unlisted"), or use Firefox Developer Edition / Nightly with `xpinstall.signatures.required` set to `false`.
+Bump `"version"` in `manifest.json`, zip the folder (for example `git archive --format=zip -o youtube-full-captions.zip HEAD`) and submit it as a new version on [addons.mozilla.org](https://addons.mozilla.org/developers/) ("On your own" distribution). Attach the signed `.xpi` to a new GitHub release.
 
 ## Usage
 
